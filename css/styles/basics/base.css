@@ -15,3 +15,17 @@ img:hover{
     cursor: pointer;
     opacity: 0.7;
 }
+
+body{
+    background-color: #333;
+    text-align: center;
+    font-family: Lato;
+}
+
+canvas{
+    margin: auto;
+}
+
+h1,h2,h3{
+    color: white;
+}

@@ -6,26 +6,37 @@ let gImgs = [
     { id: 2, url: 'img/2.png', keywords: ['funny', 'cat'] },
     { id: 3, url: 'img/3.png', keywords: ['funny', 'cat'] },
     { id: 4, url: 'img/4.png', keywords: ['funny', 'cat'] },
+    { id: 5, url: 'img/5.png', keywords: ['funny', 'cat'] },
+    { id: 6, url: 'img/6.png', keywords: ['funny', 'cat'] },
+
 ];
 let gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
-            size: 50,
-            align: 'left',
-            color: 'red',
+            txt: 'THIS IS YOUR TEXT',
+            font: 'Impact',
+            size: 60,
+            align: 'center',
+            fillColor: 'white',
+            outlineColor: 'black',
+            posX: 400,
+            posY: 100,
+            
         },
         {
-            txt: 'I sometimes eat Pizza',
-            size: 50,
-            align: 'left',
-            color: 'black',
+            txt: 'THIS IS YOUR TEXT',
+            size: 60,
+            align: 'center',
+            fillColor: 'white',
+            outlineColor: 'black',
+            posX: 400,
+            posY: 550,
         },
     ]
 }
-
+let gLine
 function getSelectedImg() {
     return gImgs[gMeme.selectedImgId].url
 }
@@ -42,7 +53,7 @@ function getImgs() {
     return gImgs
 }
 
-function setLineTxt(txt,lineIdx) {
+function setLineTxt(txt, lineIdx) {
     gMeme.lines[lineIdx].txt = txt
 }
 
@@ -52,7 +63,7 @@ function setImg(imgIdx) {
 
 function setFontColor(newColor) {
     let lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].color = newColor
+    gMeme.lines[lineIdx].fillColor = newColor
 }
 
 function setFontSize(strSizeDirection) {
@@ -73,4 +84,19 @@ function getSelectedLineColor() {
 
 function setSelectedLine(lineIdx) {
     gMeme.selectedLineIdx = lineIdx
+}
+
+function getLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function moveLine(dx, dy) {
+    let currLine = gMeme.selectedLineIdx
+    gMeme.lines[currLine].pos.x = dx
+    gMeme.lines[currLine].pos.x = dy
+}
+
+function setLineTextAlign(strAlign) {
+    let lineIdx = gMeme.selectedLineIdx
+    gMeme.lines[lineIdx].align = strAlign
 }

@@ -13,5 +13,7 @@ function onImgSelect(imgIdx) {
     setImg(parseInt(imgIdx))
     setCurrMeme(imgIdx)
     renderMeme()
+    displayEditor()
+    hideGallery() 
 }
 
