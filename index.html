@@ -5,17 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles/style.css">
     <title>Meme🎃Generator</title>
 </head>
 
-<body>
+<body onload="onInit()">
+    <h1>Meme Generator</h1>
     <nav></nav>
-    <section class="gallery-container"></section>
-    <section class="editor-container"></section>
+    <main>
+        <section class="gallery-container"></section>
+        <section class="editor-container"></section>
+        <form>
+            <label for="text-input">Enter Text:</label>
+            <input type="text" placeholder="Your Meme Text Here..." id="text-input" oninput="onTextFill(this.value)" />
+            <input type="color" id="colorPicker" oninput="onColorChange(this.value)">
+            <button type="button" onclick="onFontSizeChange('Increase')">➕</button>
+            <button type="button" onclick="onFontSizeChange('Decrease')">➖</button>
+            <button type="button" onclick="onSwitchLine()">⬆️⬇️</button>
+        </form>
+        <section class="canvas-container">
+            <canvas width="800" height="650" id="meme-area" style="outline: 1px solid black;"></canvas>
+        </section>
+    </main>
+
     <footer></footer>
-    <script src="js/util-service.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/services/util-service.js"></script>
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/meme-service.js"></script>
+    <script src="js/services/util-service.js"></script>
     <script src="js/meme-controller.js"></script>
+    <script src="js/gallery-controller.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,17 @@
+h1{
+    font-size: 3rem;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+    float: right;
+    margin: 5px;
+    box-sizing: border-box;
+    border: 1px black solid;
+}
+
+img:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
