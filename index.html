@@ -17,7 +17,8 @@
         <section class="editor-container"></section>
         <form>
             <label for="text-input">Enter Text:</label>
-            <input type="text" placeholder="Your Meme Text Here..." id="text-input" oninput="onTextFill(this.value)" />
+            <input type="text" placeholder="Your Meme Text Here..." id="text-input-1" oninput="onTextFill(this.value,0)" />
+            <input type="text" placeholder="Your Second Meme Text Here..." id="text-input-2" oninput="onTextFill(this.value,1)" />
             <input type="color" id="colorPicker" oninput="onColorChange(this.value)">
             <button type="button" onclick="onFontSizeChange('Increase')">➕</button>
             <button type="button" onclick="onFontSizeChange('Decrease')">➖</button>

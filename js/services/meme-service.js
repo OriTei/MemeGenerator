@@ -42,9 +42,8 @@ function getImgs() {
     return gImgs
 }
 
-function setLineTxt(text) {
-    let lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].txt = text
+function setLineTxt(txt,lineIdx) {
+    gMeme.lines[lineIdx].txt = txt
 }
 
 function setImg(imgIdx) {
@@ -62,8 +61,6 @@ function setFontSize(strSizeDirection) {
 }
 
 function getNewFontSize(strSizeDirection) {
-    debugger
-    let newSize
     let lineIdx = gMeme.selectedLineIdx
     if (strSizeDirection === 'Increase') return gMeme.lines[lineIdx].size + SIZE_CHANGE;
     else return gMeme.lines[lineIdx].size - SIZE_CHANGE;
@@ -72,4 +69,8 @@ function getNewFontSize(strSizeDirection) {
 function getSelectedLineColor() {
     let lineIdx = gMeme.selectedLineIdx
     return gMeme.lines[lineIdx].color
+}
+
+function setSelectedLine(lineIdx) {
+    gMeme.selectedLineIdx = lineIdx
 }
