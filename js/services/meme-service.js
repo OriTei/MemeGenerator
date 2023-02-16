@@ -7,36 +7,11 @@ let gImgs = [
     { id: 3, url: 'img/3.png', keywords: ['funny', 'cat'] },
     { id: 4, url: 'img/4.png', keywords: ['funny', 'cat'] },
     { id: 5, url: 'img/5.png', keywords: ['funny', 'cat'] },
-    { id: 6, url: 'img/6.png', keywords: ['funny', 'cat'] },
 
 ];
-let gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'THIS IS YOUR TEXT',
-            font: 'Impact',
-            size: 60,
-            align: 'center',
-            fillColor: 'white',
-            outlineColor: 'black',
-            posX: 400,
-            posY: 100,
-            
-        },
-        {
-            txt: 'THIS IS YOUR TEXT',
-            size: 60,
-            align: 'center',
-            fillColor: 'white',
-            outlineColor: 'black',
-            posX: 400,
-            posY: 550,
-        },
-    ]
-}
+let gMeme
 let gLine
+
 function getSelectedImg() {
     return gImgs[gMeme.selectedImgId].url
 }
@@ -53,22 +28,88 @@ function getImgs() {
     return gImgs
 }
 
-function setLineTxt(txt, lineIdx) {
-    gMeme.lines[lineIdx].txt = txt
+function createMeme() {
+    var meme = {
+        selectedImgId: 1,
+        selectedLineIdx: 0,
+        lines: [_createFirstLine(), _createSecondLine()]
+    }
+    return meme;
+}
+
+function _createFirstLine() {
+    let line = {
+        txt: 'THIS IS YOUR TEXT',
+        font: 'Impact',
+        size: 60,
+        align: 'center',
+        fillColor: 'white',
+        outlineColor: 'black',
+        baseline: 'top',
+        isDrag: false,
+        width: 0,
+        pos: {
+            x: gElCanvas.width / 2,
+            y: 0,
+        }
+    }
+    return line
+}
+
+function _createSecondLine() {
+    let line = {
+        txt: 'THIS IS YOUR TEXT',
+        font: 'Impact',
+        size: 60,
+        align: 'center',
+        fillColor: 'white',
+        baseline: 'bottom',
+        outlineColor: 'black',
+        isDrag: false,
+        width: 0,
+        pos: {
+            x: gElCanvas.width / 2,
+            y: gElCanvas.height
+        }
+    }
+    return line
+}
+
+function createNewLine() {
+    let line = {
+        txt: 'THIS IS YOUR TEXT',
+        font: 'Impact',
+        size: 60,
+        align: 'center',
+        fillColor: 'white',
+        baseLine: 'middle',
+        outlineColor: 'black',
+        isDrag: false,
+        width: 0,
+        pos: {
+            x: gElCanvas.width / 2,
+            y: gElCanvas.height / 2
+        }
+    }
+    gMeme.lines.push(line)
+    return line
+}
+
+
+function setLineTxt(txt) {
+    gLine.txt = txt
 }
 
 function setImg(imgIdx) {
     gMeme.selectedImgId = imgIdx
 }
 
-function setFontColor(newColor) {
-    let lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].fillColor = newColor
+function setFontColor(newColor,line) {
+    line.fillColor = newColor
 }
 
 function setFontSize(strSizeDirection) {
-    let lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].size = getNewFontSize(strSizeDirection)
+    gLine.size = getNewFontSize(strSizeDirection)
 }
 
 function getNewFontSize(strSizeDirection) {
@@ -84,6 +125,7 @@ function getSelectedLineColor() {
 
 function setSelectedLine(lineIdx) {
     gMeme.selectedLineIdx = lineIdx
+    gLine = gMeme.lines[lineIdx]
 }
 
 function getLine() {
@@ -91,12 +133,20 @@ function getLine() {
 }
 
 function moveLine(dx, dy) {
-    let currLine = gMeme.selectedLineIdx
-    gMeme.lines[currLine].pos.x = dx
-    gMeme.lines[currLine].pos.x = dy
+    gLine.pos.x = dx
+    gLine.pos.y = dy
 }
 
 function setLineTextAlign(strAlign) {
-    let lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].align = strAlign
+    gLine.align = strAlign
+}
+
+function setOutlineColor(newColor,line) {
+    line.outlineColor = newColor
+}
+
+function setSwitchedLine() {
+    gMeme.selectedLineIdx++;
+    if (gMeme.selectedLineIdx > gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
+    setSelectedLine(gMeme.selectedLineIdx)
 }

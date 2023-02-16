@@ -4,17 +4,15 @@ let gElCurrMemeImg
 let gElCanvas
 let gCtx
 let currSelectedLine
-const LINES_GAP = 10
 
 function renderMeme() {
     let memeImg = new Image()
+    const meme = getMeme()
     memeImg.src = getSelectedImg()
     memeImg.onload = () => {
         gElCurrMemeImg = memeImg
         drawImg(memeImg)
-        for (let i = 0; i < gMeme.lines.length; i++) {
-            drawText(gMeme.lines[i].txt, gMeme.lines[i].posX, gMeme.lines[i].posY, i)
-        }
+        meme.lines.forEach(line => drawText(line, line.pos.x, line.pos.y));
     }
 }
 
@@ -23,25 +21,30 @@ function drawImg(img) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-function drawText(txt, x, y, lineIdx) {
+function drawText(line, x, y) {
     gCtx.lineWidth = 3
-    gCtx.strokeStyle = gMeme.lines[lineIdx].outlineColor
-    gCtx.fillStyle = gMeme.lines[lineIdx].fillColor
-    gCtx.font = `${gMeme.lines[lineIdx].size}px Impact`
-    gCtx.textAlign = gMeme.lines[lineIdx].align
-    gCtx.textBaseline = 'middle'
-    gCtx.fillText(txt, x, y)
-    gCtx.strokeText(txt, x, y)
+    gCtx.strokeStyle = line.outlineColor
+    gCtx.fillStyle = line.fillColor
+    gCtx.font = `${line.size}px` + ' ' + `${line.font}`
+    gCtx.textAlign = line.align
+    gCtx.textBaseline = line.baseline
+    line.width = getTxtWidth(line.txt) // updates the data model due to the text
+    gCtx.fillText(line.txt, x, y)
+    gCtx.strokeText(line.txt, x, y)
 }
 
-function onTextFill(txt, lineIdx) {
-    setSelectedLine(lineIdx)
-    setLineTxt(txt, lineIdx)
+function onTextFill(txt) {
+    setLineTxt(txt)
     renderMeme()
 }
 
-function onColorChange(newColor, lineIdx) {
-    setFontColor(newColor, lineIdx)
+function onFillColorChange(newColor) {
+    setFontColor(newColor, gLine)
+    renderMeme()
+}
+
+function onOutColorChange(newColor) {
+    setOutlineColor(newColor, gLine)
     renderMeme()
 }
 
@@ -51,13 +54,14 @@ function onFontSizeChange(changeFontStr) {
 }
 
 function onSwitchLine() {
-    (gMeme.lines.length - 1 === gMeme.selectedLineIdx) ? gMeme.selectedLineIdx = 0 : gMeme.selectedLineIdx++
-    setSelectedLine(lineIdx)
+    debugger
+    setSwitchedLine()
+    renderMeme()
 }
 
-//Check if the click is inside the circle 
-function isLineClicked(clickedPos) {
 
+function getTxtWidth(txt) {
+    return gCtx.measureText(txt).width
 }
 
 function displayEditor() {
@@ -82,5 +86,10 @@ function hideGallery() {
 
 function onTextAlign(strAlignPos) {
     setLineTextAlign(strAlignPos)
+    renderMeme()
+}
+
+function onAddLine() {
+    createNewLine()
     renderMeme()
 }

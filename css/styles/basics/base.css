@@ -8,7 +8,8 @@ img{
     float: right;
     margin: 5px;
     box-sizing: border-box;
-    border: 1px black solid;
+    border: 5px black solid;
+    border-radius: 20px;
 }
 
 img:hover{
