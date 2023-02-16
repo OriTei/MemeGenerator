@@ -1,6 +1,6 @@
 'use strict'
 const SIZE_CHANGE = 5
-const IMGS_NUM = 8
+const IMGS_NUM = 24
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gImgs
 let gMeme
