@@ -10,7 +10,9 @@ function onInit() {
     gElCanvas = document.querySelector('#meme-area')
     gCtx = gElCanvas.getContext('2d')
     gMeme = createMeme()
-    gLine = gMeme.lines[gMeme.selectedLineIdx]
+    createFirstLine()
+    createSecondLine()
+    gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
     renderMeme()
     renderGallery()
     displayGallery()
@@ -66,7 +68,7 @@ function addTouchListeners() {
 // }
 
 // function onMove(ev) {
-//     if (!gLine.isDrag) return
+//     if (!gCurrLine.isDrag) return
 //     const pos = getEvPos(ev)
 //     // Calc the delta , the diff we moved
 //     const dx = pos.x - gStartPos.x
@@ -82,7 +84,7 @@ function addTouchListeners() {
 // function onUp() {
 //     console.log('up')
 //     gIsDrag = false
-//     gLine.isDrag = false
+//     gCurrLine.isDrag = false
 //     document.body.style.cursor = 'auto'
 // }
 

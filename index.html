@@ -21,6 +21,8 @@
                 <input type="text" placeholder="Your Meme Text Here..."
                     id="text-input-1" oninput="onTextFill(this.value)" />
                 <button type="button" onclick="onAddLine()">Add Text</button>
+                <button type="button" title="clear text" onclick="onClearText()">🧹</button>
+                <button type="button" title="delete text" onclick="onDeleteText()">🗑️</button>
                 <div class="colors">
                     <input type="color" title="Fill color pick" oninput="onFillColorChange(this.value)">
                     <input type="color" title="Outline color pick" oninput="onOutColorChange(this.value)">

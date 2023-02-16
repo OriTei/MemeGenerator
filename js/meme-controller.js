@@ -3,7 +3,6 @@
 let gElCurrMemeImg
 let gElCanvas
 let gCtx
-let currSelectedLine
 
 function renderMeme() {
     let memeImg = new Image()
@@ -39,12 +38,12 @@ function onTextFill(txt) {
 }
 
 function onFillColorChange(newColor) {
-    setFontColor(newColor, gLine)
+    setFontColor(newColor)
     renderMeme()
 }
 
 function onOutColorChange(newColor) {
-    setOutlineColor(newColor, gLine)
+    setOutlineColor(newColor, gCurrLine)
     renderMeme()
 }
 
@@ -54,7 +53,7 @@ function onFontSizeChange(changeFontStr) {
 }
 
 function onSwitchLine() {
-    debugger
+    clearElTextInp()
     setSwitchedLine()
     renderMeme()
 }
@@ -90,6 +89,29 @@ function onTextAlign(strAlignPos) {
 }
 
 function onAddLine() {
-    createNewLine()
+    if (gMeme.lines.length === 0) createFirstLine()
+    else if (gMeme.lines.length === 1) createSecondLine()
+    else createNewLine()
+    gMeme.selectedLineIdx++
+    clearElTextInp()
+    renderMeme()
+}
+
+function clearElTextInp() {
+    let elTxtInp = document.querySelector('#text-input-1')
+    elTxtInp.value = ''
+}
+
+function onClearText() {
+    gMeme.lines.forEach(line => line.txt = '')
+    renderMeme()
+}
+
+function onDeleteText() {
+    if (!gMeme.lines.length) return
+    gMeme.lines.pop()
+    gMeme.selectedLineIdx--
+    gCurrLine = gMeme.lines[gMeme.lines.length-1]
+    if (gMeme.selectedLineIdx < 0) gMeme.selectedLineIdx = -1
     renderMeme()
 }

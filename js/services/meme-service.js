@@ -10,7 +10,8 @@ let gImgs = [
 
 ];
 let gMeme
-let gLine
+let gCurrLine
+
 
 function getSelectedImg() {
     return gImgs[gMeme.selectedImgId].url
@@ -32,12 +33,12 @@ function createMeme() {
     var meme = {
         selectedImgId: 1,
         selectedLineIdx: 0,
-        lines: [_createFirstLine(), _createSecondLine()]
+        lines: []
     }
     return meme;
 }
 
-function _createFirstLine() {
+function createFirstLine() {
     let line = {
         txt: 'THIS IS YOUR TEXT',
         font: 'Impact',
@@ -53,10 +54,12 @@ function _createFirstLine() {
             y: 0,
         }
     }
+    gMeme.lines.push(line)
+    gCurrLine = gMeme.lines[gMeme.lines.length-1]
     return line
 }
 
-function _createSecondLine() {
+function createSecondLine() {
     let line = {
         txt: 'THIS IS YOUR TEXT',
         font: 'Impact',
@@ -72,6 +75,8 @@ function _createSecondLine() {
             y: gElCanvas.height
         }
     }
+    gMeme.lines.push(line)
+    gCurrLine = gMeme.lines[gMeme.lines.length-1]
     return line
 }
 
@@ -82,7 +87,7 @@ function createNewLine() {
         size: 60,
         align: 'center',
         fillColor: 'white',
-        baseLine: 'middle',
+        baseLine: 'center',
         outlineColor: 'black',
         isDrag: false,
         width: 0,
@@ -92,40 +97,43 @@ function createNewLine() {
         }
     }
     gMeme.lines.push(line)
+    gCurrLine = gMeme.lines[gMeme.lines.length-1]
     return line
 }
 
 
 function setLineTxt(txt) {
-    gLine.txt = txt
+    if(!gCurrLine) return 
+    gCurrLine.txt = txt
 }
 
 function setImg(imgIdx) {
     gMeme.selectedImgId = imgIdx
 }
 
-function setFontColor(newColor,line) {
-    line.fillColor = newColor
+function setFontColor(newColor) {
+    if(!gCurrLine) return 
+    gCurrLine.fillColor = newColor
 }
 
 function setFontSize(strSizeDirection) {
-    gLine.size = getNewFontSize(strSizeDirection)
+    if(!gCurrLine) return 
+    gCurrLine.size = getNewFontSize(strSizeDirection)
 }
 
 function getNewFontSize(strSizeDirection) {
-    let lineIdx = gMeme.selectedLineIdx
-    if (strSizeDirection === 'Increase') return gMeme.lines[lineIdx].size + SIZE_CHANGE;
-    else return gMeme.lines[lineIdx].size - SIZE_CHANGE;
+    if(!gCurrLine) return 
+    if (strSizeDirection === 'Increase') return gCurrLine.size + SIZE_CHANGE;
+    else return gCurrLine.size - SIZE_CHANGE;
 }
 
 function getSelectedLineColor() {
-    let lineIdx = gMeme.selectedLineIdx
-    return gMeme.lines[lineIdx].color
+    return gCurrLine.color
 }
 
 function setSelectedLine(lineIdx) {
     gMeme.selectedLineIdx = lineIdx
-    gLine = gMeme.lines[lineIdx]
+    gCurrLine = gMeme.lines[lineIdx]
 }
 
 function getLine() {
@@ -133,12 +141,12 @@ function getLine() {
 }
 
 function moveLine(dx, dy) {
-    gLine.pos.x = dx
-    gLine.pos.y = dy
+    gCurrLine.pos.x = dx
+    gCurrLine.pos.y = dy
 }
 
 function setLineTextAlign(strAlign) {
-    gLine.align = strAlign
+    gCurrLine.align = strAlign
 }
 
 function setOutlineColor(newColor,line) {
@@ -149,4 +157,10 @@ function setSwitchedLine() {
     gMeme.selectedLineIdx++;
     if (gMeme.selectedLineIdx > gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
     setSelectedLine(gMeme.selectedLineIdx)
+}
+
+function getLineBase() {
+    if (gMeme.selectedLineIdx === 0) return 'top'
+    else if (gMeme.selectedLineIdx === 1) return 'bottom'
+    else return 'center'
 }
