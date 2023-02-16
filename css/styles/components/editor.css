@@ -1,9 +1,42 @@
 .editor-container{
-    background-color: #837171;
-    color: white;
+    background: linear-gradient(var(--editor-background),#a9a6a6);
+    width: fit-content;
+    height: fit-content;
+    padding: 50px;
+    margin: auto;
+    box-shadow: 0 15px 15px black;
+    border-radius: 30px;
+}
+
+canvas {
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .editor-tools{
-    padding: 50px;
-    background-color: #cb4141;
+    margin: auto;
+    flex-direction: column;
+}
+
+.editor-tools button{
+    padding: 1px;
+    font-size: 1em;
+    font-family: Lato;
+    font-weight: 700;
+}
+
+.editor-tools input{
+    padding: 10px;
+    font-size: 1em;
+}
+
+ .close-btn{
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #333;
+}
+
+.close-btn:hover{
+    opacity: 0.7;
+    cursor: pointer;
 }

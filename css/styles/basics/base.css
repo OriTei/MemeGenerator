@@ -1,32 +1,44 @@
-h1{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
     font-size: 3rem;
 }
 
-img{
+img {
     width: 250px;
     height: 250px;
     float: right;
-    margin: 5px;
+    margin: 10px;
     box-sizing: border-box;
-    border: 5px black solid;
     border-radius: 20px;
 }
 
-img:hover{
-    cursor: pointer;
+img:hover {
     opacity: 0.7;
+    cursor: pointer;
+    box-shadow: 0 5px 5px black;
+    animation-duration: 0.5s;
+    animation-name: pulse;
 }
 
-body{
-    background-color: #333;
+
+
+body {
+    background: linear-gradient(#333, #101010);
     text-align: center;
     font-family: Lato;
+    height: 250vh;
 }
 
-canvas{
+canvas {
     margin: auto;
 }
 
-h1,h2,h3{
+h1,
+h2,
+h3 {
     color: white;
 }

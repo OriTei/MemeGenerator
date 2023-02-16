@@ -73,10 +73,6 @@ function hideEditor() {
     elEditor.classList.add('hide')
 }
 
-function displayGallery() {
-    let elGallery = document.querySelector('.gallery-container')
-    elGallery.classList.remove('hide')
-}
 
 function hideGallery() {
     let elGallery = document.querySelector('.gallery-container')
@@ -104,6 +100,7 @@ function clearElTextInp() {
 
 function onClearText() {
     gMeme.lines.forEach(line => line.txt = '')
+    clearElTextInp()
     renderMeme()
 }
 
@@ -114,4 +111,14 @@ function onDeleteText() {
     gCurrLine = gMeme.lines[gMeme.lines.length-1]
     if (gMeme.selectedLineIdx < 0) gMeme.selectedLineIdx = -1
     renderMeme()
+}
+
+function hideElNav() {
+    document.querySelector('.navbar-container').classList.add('hide')    
+    document.querySelector('.navbar-container').classList.remove('flex')    
+}
+
+function displayElNav() {
+    document.querySelector('.navbar-container').classList.add('flex')    
+    document.querySelector('.navbar-container').classList.remove('hide')
 }

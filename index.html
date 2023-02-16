@@ -6,23 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://kit.fontawesome.com/b4ce7bf6ff.js" crossorigin="anonymous"></script>
     <title>Meme🎃Generator</title>
 </head>
 
-<body onload="onInit()">
+<body onload="onInit()" class="main-layout">
+    <header>
+        <nav class="navbar-container flex">
+            <div class="logo"><img src="img/logo.png" alt=""></div>
+            <ul class="main-menu flex clean-list">
+                <li>Saved Memes</li>
+                <li>Gallery</li>
+                <li>About</li>
+            </ul>
+        </nav>
+        </div>
+    </header>
     <h1>Meme Generator</h1>
-    <nav></nav>
     <main class="container">
         <section class="gallery-container"></section>
         <section class="editor-container hide">
+            <div>
+                <button class="close-btn" type="button" onclick="displayGallery(),hideEditor()">❌</button>
+            </div>
             <form class="editor-tools">
                 <label for="text-input"></label>
-                <input type="text" placeholder="Your Meme Text Here..."
-                    id="text-input-1" oninput="onTextFill(this.value)" />
-                <button type="button" onclick="onAddLine()">Add Text</button>
-                <button type="button" title="clear text" onclick="onClearText()">🧹</button>
-                <button type="button" title="delete text" onclick="onDeleteText()">🗑️</button>
+                <div>
+                    <input type="text" placeholder="Your Meme Text Here..." id="text-input-1"
+                        oninput="onTextFill(this.value)" />
+                    <button type="button" onclick="onAddLine()">Add Text</button>
+                </div>
                 <div class="colors">
                     <input type="color" title="Fill color pick" oninput="onFillColorChange(this.value)">
                     <input type="color" title="Outline color pick" oninput="onOutColorChange(this.value)">
@@ -31,13 +45,16 @@
                 <button type="button" onclick="onFontSizeChange('Decrease')">➖</button>
                 <div class="font-align-container">
                     <button type="button" onclick="onTextAlign('right')"><i
-                            class="fa-solid fa-align-right"></i></i></button>
-                    <button type="button" onclick="onTextAlign('center')"><i
+                        class="fa-solid fa-align-right"></i></i></button>
+                        <button type="button" onclick="onTextAlign('center')"><i
                             class="fa-solid fa-align-justify"></i></button>
-                    <button type="button" onclick="onTextAlign('left')"><i class="fa-solid fa-align-left"></i></button>
-                </div>
-                <button type="button" onclick="onSwitchLine()">⬆️⬇️</button>
-                <button type="button" onclick="displayGallery(),hideEditor()">Go Back</button>
+                            <button type="button" onclick="onTextAlign('left')"><i class="fa-solid fa-align-left"></i></button>
+                        </div>
+                        <button type="button" onclick="onSwitchLine()">⬆️⬇️</button>
+                        <div>
+                            <button type="button" title="clear all text" onclick="onClearText()">🧹</button>
+                            <button type="button" title="delete previous text" onclick="onDeleteText()">🗑️</button>
+                        </div>
             </form>
             <div class="canvas-container">
                 <canvas width="500" height="500" id="meme-area" style="outline: 1px solid black;"></canvas>

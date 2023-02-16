@@ -1,6 +1,7 @@
-/* :root {
-    --clr2: #000;
-    --clr1: #626262;
-    --clr0: #b4ad9e;
-    --clr-1: #f0f0f0;
-} */
+:root {
+    --page-color: #101010;
+    --background-color: #333;
+    --editor-background: #413e4d;
+    --secondary-text: #626262;
+    --primary-text: #f0f0f0;
+}

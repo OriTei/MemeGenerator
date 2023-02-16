@@ -9,6 +9,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onInit() {
     gElCanvas = document.querySelector('#meme-area')
     gCtx = gElCanvas.getContext('2d')
+    gImgs = getImgs()
     gMeme = createMeme()
     createFirstLine()
     createSecondLine()
@@ -17,6 +18,7 @@ function onInit() {
     renderGallery()
     displayGallery()
     hideEditor()
+    displayElNav()
 }
 
 function addListeners() {

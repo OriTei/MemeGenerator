@@ -1,6 +1,7 @@
 /* SETUP */
 @import 'setup/vars.css';
 @import 'setup/typography.css';
+@import 'setup/keyframes.css';
 
 /* BASICS */
 @import 'basics/base.css';
@@ -10,6 +11,8 @@
 /* COMPONENTS */
 @import 'components/header.css';
 @import 'components/footer.css';
+@import 'components/gallery.css';
+@import 'components/editor.css';
 @import 'components/modal.css';
 
 /* MEDIA QUERIS */

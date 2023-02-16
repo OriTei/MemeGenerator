@@ -4,12 +4,13 @@ function renderGallery() {
     const imgs = getImgs()
     let strHTML = ''
     for (let i = 0; i < imgs.length; i++){
-        strHTML += `<img src="${imgs[i].url}" onclick="onImgSelect(${i})">\n`
+        strHTML += `<img class="meme-img" src="${imgs[i].url}" onclick="onImgSelect(${i})">\n`
     }
     document.querySelector('.gallery-container').innerHTML = strHTML
 }
 
 function onImgSelect(imgIdx) {
+    hideElNav()
     setImg(parseInt(imgIdx))
     setCurrMeme(imgIdx)
     renderMeme()
@@ -17,3 +18,9 @@ function onImgSelect(imgIdx) {
     hideGallery() 
 }
 
+
+function displayGallery() {
+    displayElNav()
+    let elGallery = document.querySelector('.gallery-container')
+    elGallery.classList.remove('hide')
+}

@@ -1,17 +1,19 @@
 'use strict'
 const SIZE_CHANGE = 5
+const IMGS_NUM = 8
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-let gImgs = [
-    { id: 1, url: 'img/1.png', keywords: ['funny', 'cat'] },
-    { id: 2, url: 'img/2.png', keywords: ['funny', 'cat'] },
-    { id: 3, url: 'img/3.png', keywords: ['funny', 'cat'] },
-    { id: 4, url: 'img/4.png', keywords: ['funny', 'cat'] },
-    { id: 5, url: 'img/5.png', keywords: ['funny', 'cat'] },
-
-];
+let gImgs
 let gMeme
 let gCurrLine
 
+function getImgs() {
+    let imgs = []
+    for (let i = 1; i <= IMGS_NUM; i++){
+        let currImg = { id: i, url: `img/${i}.png`, keywords: ['funny', 'cat'] }
+        imgs.push(currImg)
+    }
+    return imgs
+}
 
 function getSelectedImg() {
     return gImgs[gMeme.selectedImgId].url
@@ -23,10 +25,6 @@ function setCurrMeme(newMemeId) {
 
 function getMeme() {
     return gMeme
-}
-
-function getImgs() {
-    return gImgs
 }
 
 function createMeme() {

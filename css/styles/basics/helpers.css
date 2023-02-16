@@ -5,3 +5,15 @@
 .selected{
     border: 3px lightblue solid;
 }
+
+.flex{
+    display: flex;
+}
+
+.grid{
+    display: grid;
+}
+
+.clean-list{
+    list-style: none;
+}
