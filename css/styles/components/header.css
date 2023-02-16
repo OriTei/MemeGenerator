@@ -9,6 +9,7 @@
 }
 
 .navbar-container ul {
+    display: flex;
     align-self: center;
     padding-right: 50px;
     font-size: 2rem;
@@ -33,3 +34,4 @@
 h1 {
     margin-bottom: 10px;
 }
+

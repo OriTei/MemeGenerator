@@ -14,11 +14,14 @@
 <body onload="onInit()" class="main-layout">
     <header>
         <nav class="navbar-container flex">
-            <div class="logo"><img src="img/logo.png" alt=""></div>
-            <ul class="main-menu flex clean-list">
-                <li>Saved Memes</li>
-                <li>Gallery</li>
-                <li>About</li>
+            <div class="h-menu-container">
+                <div class="logo"><img src="img/logo.png" alt=""></div>
+                <button class="h-menu-icon menu-open hide" type="button" onclick="toggleMenu()">☰</button>
+            </div>
+            <ul class="main-menu clean-list">
+                <li class="nav-li">Saved Memes</li>
+                <li class="nav-li">Gallery</li>
+                <li class="nav-li">About</li>
             </ul>
         </nav>
         </div>

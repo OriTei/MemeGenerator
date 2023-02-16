@@ -1,5 +1,13 @@
 @media (max-width: 768px) {
 
+
+    .navbar-container .main-menu ul{
+        display: none;
+    }
+
+    .nav-li{
+        display: none;
+    }
     ::-webkit-scrollbar {
         display: none;
     }
@@ -10,6 +18,54 @@
 
     body {
         overflow-y: scroll;
+        height: 400vh;
+    }
+
+
+    body.menu-open {
+        pointer-events: auto;
+        opacity: 1;
+    }
+    .h-menu-icon {
+        display: block;
+        justify-self: flex-end;
+        font-size: 30px;
+        background-color: #101010;
+        padding: 0 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .h-menu-icon:hover {
+        opacity: 0.7;
+    }
+
+    .h-menu-container{
+        padding-left: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .main-header .main-nav {
+        position: absolute;
+        top: 130px;
+        right: auto;
+        border-inline-start: 1px solid #000000;
+        min-width: 150px;
+        transform: translateX(300%);
+        transition: transform 1s;
+    }
+
+    .main-header .main-menu a:hover {
+        color: #58c93a;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        box-shadow: -1px 0 0 #1d1d1d, inset 0 -6px 0 #58c93a;
+        background-color: #151515;
     }
 
     h1 {
@@ -29,6 +85,7 @@
         width: 350px;
         height: 350px;
     }
+
 
 }
 

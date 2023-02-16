@@ -24,3 +24,7 @@ function displayGallery() {
     let elGallery = document.querySelector('.gallery-container')
     elGallery.classList.remove('hide')
 }
+
+function toggleMenu() {
+   
+}

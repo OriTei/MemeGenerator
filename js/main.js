@@ -38,6 +38,8 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
+
+
 // function onDown(ev) {
 //     document.body.style.cursor = 'grabbing'
 //     const pos = getEvPos(ev)
