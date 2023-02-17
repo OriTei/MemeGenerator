@@ -122,3 +122,22 @@ function displayElNav() {
     document.querySelector('.navbar-container').classList.add('flex')    
     document.querySelector('.navbar-container').classList.remove('hide')
 }
+
+function downloadCanvas(elLink) {
+    const data = gElCanvas.toDataURL() // Method returns a data URL containing a representation of the image in the format specified by the type parameter.
+    elLink.href = data // Put it on the link
+    elLink.download = 'my-img' // Can change the name of the file
+}
+
+function onSaveMeme() {
+    saveMeme()
+}
+
+function onShowMemes() {
+    displayMemesModal()
+    renderSavedMemes()
+}
+
+function displayMemesModal() {
+    
+}

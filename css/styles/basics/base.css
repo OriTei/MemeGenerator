@@ -20,6 +20,8 @@ button {
     background-color: #71b5bb;
     color: #fff;
     border: none;
+    box-shadow: 2px 2px black;
+
 }
 
 button:hover {
@@ -28,11 +30,11 @@ button:hover {
 }
 
 img:hover {
-    opacity: 0.7;
     cursor: pointer;
-    box-shadow: 0 5px 5px black;
+    box-shadow: 10px 10px black;
     animation-duration: 0.5s;
     animation-name: pulse;
+    transition: box-shadow 0.3s;
 }
 
 
@@ -55,3 +57,6 @@ h3 {
     color: white;
 }
 
+a{
+    text-decoration: none;
+}

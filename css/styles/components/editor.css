@@ -3,24 +3,25 @@
     width: fit-content;
     height: fit-content;
     padding: 10px;
-    margin: auto;    
-    box-shadow: 0 15px 15px black;
-    border-radius: 30px;
+    margin: auto;
+    box-shadow:  10px 10px rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 20px;
 }
 
-.main-container{
+.main-container {
     display: flex;
     flex-direction: row;
 }
 
 canvas {
+    border: 5px solid black;
     border-radius: 10px;
     margin-top: 20px;
 }
 
 .editor-tools {
     margin: auto;
-    flex-direction: column;
 }
 
 .editor-tools button {
@@ -38,18 +39,20 @@ canvas {
 }
 
 .close-btn {
+    outline: 2px rgb(191, 191, 191) solid;
     border-radius: 50%;
     padding: 10px;
     background-color: #000000;
 }
 
-.text-input{
+.text-input {
     margin: 5px 0px;
 }
 
 .close-btn:hover {
-    opacity: 0.7;
     cursor: pointer;
+    outline: 2px rgb(255, 0, 0) solid;
+
 }
 
 #text-input-1 {
@@ -64,38 +67,67 @@ canvas {
     flex-shrink: 1;
 }
 
-.color-btn{
+.color-btn {
     border-radius: 10px;
     width: 40px;
     height: 40px;
-    background-color:#71b5bb ;
+    background-color: #71b5bb;
     margin-right: 5px;
     padding: 3px;
-
+    box-shadow: 2px 2px black;
     border: none;
 }
 
-.color-btn:hover{
+.color-btn:hover {
     cursor: pointer;
     opacity: 0.7;
 }
 
-.upper-btns{
+.upper-btns {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 5px;
 }
 
-.erase-btns{
-    margin: 0;
-    font-size:25px;
+#add-input-1{
+    object-fit: cover;
 }
 
-.erase-btns button{
+.erase-btns {
     margin: 0;
-    font-size:25px;
+    font-size: 25px;
+}
+
+.erase-btns button {
+    margin: 0;
+    font-size: 25px;
     background-color: #e3e2e2;
     margin-top: 5px;
 }
 
+.share-icons{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width: fit-content;
+    font-size: 20px;
+    gap: 1em;
+    background-color: #1c3fbc5d;
+    border-radius: 10px;
+    box-shadow: 2px 2px black;
+    padding: 5px;
+}
+
+.share-icons i{
+    color: white;
+    font-size: 1.5em;;
+}
+
+.share-icons i:hover{
+    cursor: pointer;
+    color: darkblue;
+}
+
+.donwload-link i{
+    color: inherit;
+}

@@ -19,7 +19,7 @@
                 <button class="h-menu-icon menu-open hide" type="button" onclick="toggleMenu()">☰</button>
             </div>
             <ul class="main-menu clean-list">
-                <li class="nav-li">Saved Memes</li>
+                <li class="nav-li" onclick="onShowMemes()">Saved Memes</li>
                 <li class="nav-li">Gallery</li>
                 <li class="nav-li">About</li>
             </ul>
@@ -35,10 +35,20 @@
                     onclick="displayGallery(),hideEditor(),displayElNav()">❌</button>
             </div>
             <div class="main-container">
+                <div class="canvas-container">
+                    <div class="share-icons">
+                            <a class="download-link" href="#" onclick="downloadCanvas(this)" download="file-name" title="download">
+                                <i class="fa-solid fa-download"></i>
+                            </a>
+                            <i onclick="onUploadImg()" class="fa-brands fa-facebook" title="Share to facebook"></i>
+                            <i onclick="onSaveMeme()" class="fa-regular fa-floppy-disk" title="Save to your gallery"></i>
+                    </div>
+                    <canvas width="550" height="550" id="meme-area"></canvas>
+                </div>
                 <form class="editor-tools">
                     <div class="upper-btns">
                         <button type="button" id="add-input-1" onclick="onAddLine()">Add Text</button>
-                        <button type="button" onclick="onSwitchLine()">⬆️⬇️</button>
+                        <button type="button" onclick="onSwitchLine()" title="Edit Next Line">⬆️⬇️</button>
                         <input class="color-btn" type="color" value="#FFFFFF" title="Fill color pick"
                             oninput="onFillColorChange(this.value)">
                         <input class="color-btn" type="color" title="Outline color pick"
@@ -64,21 +74,20 @@
                         <button type="button" class="erase-btns" title="delete previous text"
                             onclick="onDeleteText()">🗑️</button>
                     </div>
-                    <div class="canvas-container">
-                        <canvas width="550" height="400" id="meme-area" style="outline: 1px solid black;"></canvas>
-                    </div>
+                </form>
             </div>
-            </form>
         </section>
     </main>
 
     <footer>All Rights Reserved &copy; ORI TEICHER</footer>
+
     <script src="js/lib/hammer.js"></script>
     <script src="js/main.js"></script>
     <script src="js/services/util-service.js"></script>
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
-    <script src="js/services/util-service.js"></script>
+    <script src="js/services/upload-service.js"></script>
+    <script src="js/services/share-service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/gallery-controller.js"></script>
 </body>

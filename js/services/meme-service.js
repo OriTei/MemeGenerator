@@ -5,6 +5,7 @@ let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gImgs
 let gMeme
 let gCurrLine
+let gUserMemes
 
 function getImgs() {
     let imgs = []
@@ -161,4 +162,19 @@ function getLineBase() {
     if (gMeme.selectedLineIdx === 0) return 'top'
     else if (gMeme.selectedLineIdx === 1) return 'bottom'
     else return 'center'
+}
+
+function getUserMemes() {
+    let memes = loadFromStorage(MEMES_KEY)
+    if (!memes || !memes.length) {
+        memes = []
+        saveToStorage(MEMES_KEY, memes)
+    }
+    return memes;
+}
+
+function saveMeme() {
+    let newMeme = [...gMeme]
+    gUserMemes.push(newMeme)
+    saveToStorage(MEMES_KEY,gUserMemes)
 }
