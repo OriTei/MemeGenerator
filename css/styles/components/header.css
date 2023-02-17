@@ -1,7 +1,10 @@
 .navbar-container {
-    background: linear-gradient(var(--editor-background), #333, #101010);
+    margin: auto;
+    border-radius: 20px;
+    width: 100%;
+    background: linear-gradient(#499e4c,#333);
     box-sizing: border-box;
-    box-shadow: 0 0 5px #101010;
+    box-shadow: 0px 0px 15px #101010;
     gap: 50px;
     justify-content: space-between;
     padding: 5px;
@@ -19,7 +22,7 @@
 }
 
 .navbar-container li:hover {
-    color: #101010;
+    color: #333;
     cursor: pointer;
     box-sizing: border-box;
 }

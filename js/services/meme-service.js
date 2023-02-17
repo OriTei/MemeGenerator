@@ -1,6 +1,6 @@
 'use strict'
 const SIZE_CHANGE = 5
-const IMGS_NUM = 24
+const IMGS_NUM = 30
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gImgs
 let gMeme
@@ -9,19 +9,29 @@ let gUserMemes
 
 function getImgs() {
     let imgs = []
-    for (let i = 1; i <= IMGS_NUM; i++){
+    for (let i = 1; i <= IMGS_NUM; i++) {
         let currImg = { id: i, url: `img/${i}.png`, keywords: ['funny', 'cat'] }
         imgs.push(currImg)
     }
     return imgs
 }
 
+function getSavedMemes() {
+    let savedMemes = loadFromStorage(MEMES_KEY)
+    if (!savedMemes) savedMemes = []
+    return savedMemes
+}
+
 function getSelectedImg() {
-    return gImgs[gMeme.selectedImgId].url
+    return gImgs[gMeme.selectedImgIdx].url
+}
+
+function getSavedMemeImg(idx) {
+    return gUserMemes[idx].dataUrl
 }
 
 function setCurrMeme(newMemeId) {
-    gMeme.selectedImgId = newMemeId
+    gMeme.selectedImgIdx = newMemeId
 }
 
 function getMeme() {
@@ -30,7 +40,7 @@ function getMeme() {
 
 function createMeme() {
     var meme = {
-        selectedImgId: 1,
+        selectedImgIdx: 1,
         selectedLineIdx: 0,
         lines: []
     }
@@ -54,7 +64,7 @@ function createFirstLine() {
         }
     }
     gMeme.lines.push(line)
-    gCurrLine = gMeme.lines[gMeme.lines.length-1]
+    gCurrLine = gMeme.lines[gMeme.lines.length - 1]
     return line
 }
 
@@ -75,7 +85,7 @@ function createSecondLine() {
         }
     }
     gMeme.lines.push(line)
-    gCurrLine = gMeme.lines[gMeme.lines.length-1]
+    gCurrLine = gMeme.lines[gMeme.lines.length - 1]
     return line
 }
 
@@ -96,32 +106,32 @@ function createNewLine() {
         }
     }
     gMeme.lines.push(line)
-    gCurrLine = gMeme.lines[gMeme.lines.length-1]
+    gCurrLine = gMeme.lines[gMeme.lines.length - 1]
     return line
 }
 
 
 function setLineTxt(txt) {
-    if(!gCurrLine) return 
+    if (!gCurrLine) return
     gCurrLine.txt = txt
 }
 
 function setImg(imgIdx) {
-    gMeme.selectedImgId = imgIdx
+    gMeme.selectedImgIdx = imgIdx
 }
 
 function setFontColor(newColor) {
-    if(!gCurrLine) return 
+    if (!gCurrLine) return
     gCurrLine.fillColor = newColor
 }
 
 function setFontSize(strSizeDirection) {
-    if(!gCurrLine) return 
+    if (!gCurrLine) return
     gCurrLine.size = getNewFontSize(strSizeDirection)
 }
 
 function getNewFontSize(strSizeDirection) {
-    if(!gCurrLine) return 
+    if (!gCurrLine) return
     if (strSizeDirection === 'Increase') return gCurrLine.size + SIZE_CHANGE;
     else return gCurrLine.size - SIZE_CHANGE;
 }
@@ -148,7 +158,7 @@ function setLineTextAlign(strAlign) {
     gCurrLine.align = strAlign
 }
 
-function setOutlineColor(newColor,line) {
+function setOutlineColor(newColor, line) {
     line.outlineColor = newColor
 }
 
@@ -174,7 +184,11 @@ function getUserMemes() {
 }
 
 function saveMeme() {
-    let newMeme = [...gMeme]
-    gUserMemes.push(newMeme)
-    saveToStorage(MEMES_KEY,gUserMemes)
+    let meme = { ...gMeme, dataUrl: gElCanvas.toDataURL() }
+    gUserMemes.push(meme)
+    saveToStorage(MEMES_KEY, gUserMemes)
+}
+
+function setCurrSavedMeme(memeIdx) {
+    gMeme = { ...gUserMemes[memeIdx] }
 }

@@ -1,19 +1,20 @@
-.hide{
+.hide {
     display: none;
 }
 
-.selected{
+.selected {
     border: 3px lightblue solid;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.grid{
+.grid {
     display: grid;
 }
 
-.clean-list{
+.clean-list {
     list-style: none;
 }
+

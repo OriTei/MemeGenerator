@@ -26,22 +26,22 @@
         </nav>
         </div>
     </header>
-    <h1>🎃Meme Generator🎃</h1>
-    <main class="container">
+    <main>
         <section class="gallery-container"></section>
         <section class="editor-container hide">
             <div class="close-btn-container">
                 <button class="close-btn" type="button"
-                    onclick="displayGallery(),hideEditor(),displayElNav()">❌</button>
+                    onclick="displayGallery()">❌</button>
             </div>
             <div class="main-container">
                 <div class="canvas-container">
                     <div class="share-icons">
-                            <a class="download-link" href="#" onclick="downloadCanvas(this)" download="file-name" title="download">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                            <i onclick="onUploadImg()" class="fa-brands fa-facebook" title="Share to facebook"></i>
-                            <i onclick="onSaveMeme()" class="fa-regular fa-floppy-disk" title="Save to your gallery"></i>
+                        <a class="download-link" href="#" onclick="downloadCanvas(this)" download="file-name"
+                            title="download">
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                        <i onclick="onUploadImg()" class="fa-brands fa-facebook" title="Share to facebook"></i>
+                        <i onclick="onSaveMeme()" class="fa-regular fa-floppy-disk" title="Save to your gallery"></i>
                     </div>
                     <canvas width="550" height="550" id="meme-area"></canvas>
                 </div>
@@ -77,6 +77,14 @@
                 </form>
             </div>
         </section>
+
+        <div class="saved-memes-container hide">
+            <ul class="saved-memes-modal flex">
+            </ul>
+        </div>
+        <div class="msg-modal hide">
+            <h2>Meme Saved! Look in Saved Memes</h2>
+        </div>
     </main>
 
     <footer>All Rights Reserved &copy; ORI TEICHER</footer>
@@ -86,8 +94,8 @@
     <script src="js/services/util-service.js"></script>
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
-    <script src="js/services/upload-service.js"></script>
     <script src="js/services/share-service.js"></script>
+    <script src="js/services/upload-service.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/gallery-controller.js"></script>
 </body>

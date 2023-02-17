@@ -4,10 +4,10 @@ let gElCurrMemeImg
 let gElCanvas
 let gCtx
 
-function renderMeme() {
+function renderMeme(type = 'meme',memeIdx) {
     let memeImg = new Image()
     const meme = getMeme()
-    memeImg.src = getSelectedImg()
+    memeImg.src = (type !== 'saved-meme') ? getSelectedImg() : getSavedMemeImg(memeIdx)
     memeImg.onload = () => {
         gElCurrMemeImg = memeImg
         drawImg(memeImg)
@@ -131,13 +131,25 @@ function downloadCanvas(elLink) {
 
 function onSaveMeme() {
     saveMeme()
-}
-
-function onShowMemes() {
-    displayMemesModal()
+    displaySavedMsg()
     renderSavedMemes()
 }
 
-function displayMemesModal() {
+function displaySavedMsg() {
+    let elMsgModal = document.querySelector('.msg-modal')
+    elMsgModal.classList.remove('hide')
+    setTimeout(() => {
+        elMsgModal.classList.add('hide')
+    }, 3000);
+}
+
+function onSavedMemeClick(memeIdx) {
+    setCurrSavedMeme(memeIdx)
+    hideElNav()
+    renderMeme('saved-meme',memeIdx)
+    displayEditor()
+    hideGallery()
+    hideSavedMemes()
     
 }
+
