@@ -7,6 +7,7 @@ let gMeme
 let gCurrLine
 let gUserMemes
 
+
 function getImgs() {
     let imgs = []
     for (let i = 1; i <= IMGS_NUM; i++) {
@@ -199,4 +200,13 @@ function setFont(elValue) {
 
 function setOutlineWidth(elValue) {
     gCurrLine.outlineWidth = elValue
+}
+
+function setLineDrag() {
+    gCurrLine.isDrag = true
+}
+
+function setLineSize(){
+    let lineSize = gCtx.measureText(gCurrLine.txt).width
+    gCurrLine.width = lineSize
 }

@@ -14,11 +14,13 @@
 <body onload="onInit()" class="main-layout">
     <header>
         <nav class="navbar-container flex">
+            <div class="logo"><img src="img/logo.png" alt=""></div>
             <div class="h-menu-container">
-                <div class="logo"><img src="img/logo.png" alt=""></div>
-                <button class="h-menu-icon hide" type="button" onclick="toggleMenu()">☰</button>
-                <div class="h-menu">
-                    <ul class="h-ul clean-list flex">
+                <div>
+                    <button class="h-menu-icon hide" type="button" onclick="toggleMenu()">☰</button>
+                </div>
+                <div class="h-ul-container">
+                    <ul class="h-ul clean-list">
                         <li class="h-li hide" onclick="onShowMemes()">Saved Memes</li>
                         <li class="h-li hide">Gallery</li>
                         <li class="h-li hide">About</li>
@@ -51,7 +53,14 @@
                     </div>
                     <canvas width="550" height="550" id="meme-area"></canvas>
                 </div>
+
                 <form class="editor-tools">
+                    <div class="erase-btns flex">
+                        <button type="button" class="erase-btns" title="clear all text"
+                            onclick="onClearText()">🧹</button>
+                        <button type="button" class="erase-btns" title="delete previous text"
+                            onclick="onDeleteText()">🗑️</button>
+                    </div>
                     <div>
                         <input type="range" id="range-input" title="outline width controller"
                             onchange="onWidthChange(this.value)" min="1" max="10" value="3">
@@ -81,16 +90,20 @@
                             <option value="Arial">Arial</option>
                         </select>
                     </div>
+
                     <div class="text-input">
                         <input type="text" placeholder="Your Meme Text Here..." id="text-input-1"
                             oninput="onTextFill(this.value)" />
                     </div>
-                    <div class="erase-btns">
-                        <button type="button" class="erase-btns" title="clear all text"
-                            onclick="onClearText()">🧹</button>
-                        <button type="button" class="erase-btns" title="delete previous text"
-                            onclick="onDeleteText()">🗑️</button>
+                    <div class="nav-btns">
+                        <button onclick="onMoveUp()" type="button">🔼</button>
+                        <div class="left-right-btns flex">
+                            <button onclick="onMoveLeft()" type="button">◀️</button>
+                            <button onclick="onMoveRight()" type="button">▶️</button>
+                        </div>
+                        <button onclick="onMoveDown()" type="button">🔽</button>
                     </div>
+
                 </form>
             </div>
         </section>

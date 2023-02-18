@@ -1,11 +1,9 @@
 /* SETUP */
 @import 'setup/vars.css';
 @import 'setup/typography.css';
-@import 'setup/keyframes.css';
 
 /* BASICS */
 @import 'basics/base.css';
-@import 'basics/layout.css';
 @import 'basics/helpers.css';
 
 /* COMPONENTS */

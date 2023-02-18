@@ -1,8 +1,7 @@
 .navbar-container {
     margin: auto;
-    border-radius: 20px;
     width: 100%;
-    background: linear-gradient(#499e4c,#333);
+    background: linear-gradient(#a4e585,#024218);
     box-sizing: border-box;
     box-shadow: 0px 0px 15px #101010;
     gap: 50px;

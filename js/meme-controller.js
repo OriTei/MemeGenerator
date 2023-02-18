@@ -3,6 +3,7 @@
 let gElCurrMemeImg
 let gElCanvas
 let gCtx
+const MOVE_BY_NUM = 20
 
 function renderMeme(type = 'meme',memeIdx) {
     let memeImg = new Image()
@@ -159,5 +160,24 @@ function onFontChange(elValue) {
 
 function onWidthChange(elValue) {
     setOutlineWidth(parseInt(elValue))
+    renderMeme()
+}
+
+function onMoveDown() {
+    gCurrLine.pos.y += MOVE_BY_NUM
+    renderMeme()
+}
+function onMoveUp() {
+    gCurrLine.pos.y -= MOVE_BY_NUM
+    renderMeme()
+}
+
+function onMoveRight() {
+    gCurrLine.pos.x += MOVE_BY_NUM
+    renderMeme()
+}
+
+function onMoveLeft() {
+    gCurrLine.pos.x -= MOVE_BY_NUM
     renderMeme()
 }

@@ -46,26 +46,21 @@ function renderSavedMemes() {
 }
 
 function hideSavedMemes() {
-    let elBody = document.querySelector('body')
     let elSavedMemes = document.querySelector('.saved-memes-container')
     let elModal = document.querySelector('.saved-memes-modal')
-    elBody.classList.remove('blur')
     elSavedMemes.classList.add('hide')
     elModal.classList.remove('open')
     
 }
 
 function displayMemesModal() {
-    let elBody = document.querySelector('body')
     let elContainer = document.querySelector('.saved-memes-container')
     let elModal = document.querySelector('.saved-memes-modal')
-    elBody.classList.add('blur')
     elContainer.classList.remove('hide')
     elModal.classList.add('open')
 }
 
 function toggleMenu() {
-debugger
     let elHamLis = document.querySelectorAll('.h-li')
     for (let i = 0; i < elHamLis.length; i++){
         elHamLis[i].classList.toggle('hide')
