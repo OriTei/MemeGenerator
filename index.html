@@ -16,7 +16,14 @@
         <nav class="navbar-container flex">
             <div class="h-menu-container">
                 <div class="logo"><img src="img/logo.png" alt=""></div>
-                <button class="h-menu-icon menu-open hide" type="button" onclick="toggleMenu()">☰</button>
+                <button class="h-menu-icon hide" type="button" onclick="toggleMenu()">☰</button>
+                <div class="h-menu">
+                    <ul class="h-ul clean-list flex">
+                        <li class="h-li hide" onclick="onShowMemes()">Saved Memes</li>
+                        <li class="h-li hide">Gallery</li>
+                        <li class="h-li hide">About</li>
+                    </ul>
+                </div>
             </div>
             <ul class="main-menu clean-list">
                 <li class="nav-li" onclick="onShowMemes()">Saved Memes</li>
@@ -30,8 +37,7 @@
         <section class="gallery-container"></section>
         <section class="editor-container hide">
             <div class="close-btn-container">
-                <button class="close-btn" type="button"
-                    onclick="displayGallery()">❌</button>
+                <button class="close-btn" type="button" onclick="displayGallery()">❌</button>
             </div>
             <div class="main-container">
                 <div class="canvas-container">
@@ -46,6 +52,10 @@
                     <canvas width="550" height="550" id="meme-area"></canvas>
                 </div>
                 <form class="editor-tools">
+                    <div>
+                        <input type="range" id="range-input" title="outline width controller"
+                            onchange="onWidthChange(this.value)" min="1" max="10" value="3">
+                    </div>
                     <div class="upper-btns">
                         <button type="button" id="add-input-1" onclick="onAddLine()">Add Text</button>
                         <button type="button" onclick="onSwitchLine()" title="Edit Next Line">⬆️⬇️</button>
@@ -63,6 +73,13 @@
                                 class="fa-solid fa-align-right"></i></i></button>
                         <button type="button" onclick="onFontSizeChange('Increase')">➕</button>
                         <button type="button" onclick="onFontSizeChange('Decrease')">➖</button>
+                    </div>
+                    <div class="font-selector">
+                        <select name="font" onchange="onFontChange(this.value)" id="font-selector">
+                            <option value="Impact">Impact</option>
+                            <option value="Lato">Lato</option>
+                            <option value="Arial">Arial</option>
+                        </select>
                     </div>
                     <div class="text-input">
                         <input type="text" placeholder="Your Meme Text Here..." id="text-input-1"

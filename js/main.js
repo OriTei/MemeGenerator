@@ -12,9 +12,9 @@ function onInit() {
     gUserMemes = getSavedMemes()
     gMeme = createMeme()
     gImgs = getImgs()
-    gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
     createFirstLine()
     createSecondLine()
+    gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
     renderMeme()
     renderGallery()
     displayGallery()
@@ -48,7 +48,7 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
-    if (!isDrag) return
+    if (!isDragging) return
     let meme = getMeme()
     const pos = getEvPos(ev)
     // Calc the delta , the diff we moved
@@ -65,3 +65,8 @@ function onUp() {
     gisDragging = false
     gElCanvas.style.cursor = 'default'
 }
+
+function isLineClicked(ev) {
+    
+}
+

@@ -21,7 +21,7 @@ function drawImg(img) {
 }
 
 function drawText(line, x, y) {
-    gCtx.lineWidth = 3
+    gCtx.lineWidth = line.outlineWidth
     gCtx.strokeStyle = line.outlineColor
     gCtx.fillStyle = line.fillColor
     gCtx.font = `${line.size}px` + ' ' + `${line.font}`
@@ -150,6 +150,14 @@ function onSavedMemeClick(memeIdx) {
     displayEditor()
     hideGallery()
     hideSavedMemes()
-    
 }
 
+function onFontChange(elValue) {
+    setFont(elValue)
+    renderMeme()
+}
+
+function onWidthChange(elValue) {
+    setOutlineWidth(parseInt(elValue))
+    renderMeme()
+}

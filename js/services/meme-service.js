@@ -57,7 +57,7 @@ function createFirstLine() {
         outlineColor: 'black',
         baseline: 'top',
         isDrag: false,
-        width: 0,
+        outlineWidth: 3,
         pos: {
             x: gElCanvas.width / 2,
             y: 0,
@@ -78,7 +78,7 @@ function createSecondLine() {
         baseline: 'bottom',
         outlineColor: 'black',
         isDrag: false,
-        width: 0,
+        outlineWidth: 3,
         pos: {
             x: gElCanvas.width / 2,
             y: gElCanvas.height
@@ -99,7 +99,7 @@ function createNewLine() {
         baseLine: 'center',
         outlineColor: 'black',
         isDrag: false,
-        width: 0,
+        outlineWidth: 3,
         pos: {
             x: gElCanvas.width / 2,
             y: gElCanvas.height / 2
@@ -191,4 +191,12 @@ function saveMeme() {
 
 function setCurrSavedMeme(memeIdx) {
     gMeme = { ...gUserMemes[memeIdx] }
+}
+
+function setFont(elValue) {
+    gCurrLine.font = elValue
+}
+
+function setOutlineWidth(elValue) {
+    gCurrLine.outlineWidth = elValue
 }

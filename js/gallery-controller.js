@@ -64,3 +64,10 @@ function displayMemesModal() {
     elModal.classList.add('open')
 }
 
+function toggleMenu() {
+debugger
+    let elHamLis = document.querySelectorAll('.h-li')
+    for (let i = 0; i < elHamLis.length; i++){
+        elHamLis[i].classList.toggle('hide')
+    }
+}

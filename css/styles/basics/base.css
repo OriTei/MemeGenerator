@@ -15,6 +15,9 @@ img {
     border-radius: 20px;
 }
 
+
+
+
 button {
     border-radius: 10px;
     background-color: #71b5bb;
@@ -42,7 +45,7 @@ body {
     background: linear-gradient(#333, #101010);
     text-align: center;
     font-family: Lato;
-    height: 400vh;
+    height: 500vh;
 }
 
 
