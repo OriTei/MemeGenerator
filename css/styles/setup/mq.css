@@ -47,15 +47,10 @@
         padding-top: 20px;
     }
 
-
-
     .logo {
         margin-left: 100px;
 
     }
-
-
-
 
     .editor-container {
         background: linear-gradient(var(--editor-background), #a9a6a6);
@@ -160,8 +155,8 @@
     }
 
     .gallery-container img {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
 
     footer {
@@ -169,7 +164,7 @@
     }
 
     canvas {
-        width: 360px;
+        width: 420px;
         height: 350px;
         margin: 0px;
         margin-bottom: 10px;
@@ -187,13 +182,14 @@
 
     .msg-modal {
         position: absolute;
-        right: 10;
+        right: 0;
         bottom: 0;
-        transform: translate(-20%, -20%);
-        padding: 20px;
-        background-color: #333;
+        transform: translate(-30%, -390%);
+        padding: 10px;
+        background-color: #57b4a9;
         border-radius: 10px;
-        border: 1px white solid;
+        font-size: 50px;
+        border: 3px white solid;
     }
 
     .nav-btns {
@@ -222,7 +218,7 @@
         right: 0;
         height: 100vh;
         font-weight: 700;
-        background: linear-gradient(#5f5f5f, black);
+        background: linear-gradient(#90c874,#101010);
         box-shadow: -6px 0px 20px 5px rgb(0 0 0 / 22%);
         min-width: 200px;
         transform: translateX(100%);
@@ -254,6 +250,39 @@
 
     .h-menu-ul li:hover{
         cursor: pointer;
-        color: #58c93a;
+        color: #292929;
+    }
+
+    .saved-meme-li img{
+        border-radius: 20px;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 450px) {
+    .gallery-container img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .editor-container{
+        padding: 30px;
+    }
+
+    .erase-btns button{
+        font-size: 10px
+    }
+    canvas {
+        width: 250px;
+        height: 250px;
+    }
+
+    .editor-tools{
+        padding: 3px;
+    }
+
+    .editor-tools > *{
+        font-size: 10px;
     }
 }

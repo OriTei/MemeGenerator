@@ -1,6 +1,7 @@
 .gallery-container {
     margin: auto;
     margin-top: 50px;
+    margin: 40px;
 }
 
 .gallery-container img {
@@ -20,7 +21,8 @@
 
 .logo:hover{
     cursor: pointer;
-    opacity: 0.7;
+    animation-duration: 0.5s;
+    animation-name: pulse;
 }
 
 .saved-meme-li{

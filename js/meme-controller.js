@@ -66,12 +66,16 @@ function getTxtWidth(txt) {
 
 function displayEditor() {
     let elEditor = document.querySelector('.editor-container')
+    let elHmenu = document.querySelector('.h-menu-container')
     elEditor.classList.remove('hide')
+    elHmenu.classList.add('hide')
 }
 
 function hideEditor() {
     let elEditor = document.querySelector('.editor-container')
+    let elHmenu = document.querySelector('.h-menu-container')
     elEditor.classList.add('hide')
+    elHmenu.classList.remove('hide')
 }
 
 
@@ -117,14 +121,11 @@ function onDeleteText() {
 function hideElNav() {
     document.querySelector('.navbar-container').classList.add('hide')    
     document.querySelector('.navbar-container').classList.remove('flex')    
-    document.querySelector('.h-menu').classList.add('hide')
 }
 
 function displayElNav() {
     document.querySelector('.navbar-container').classList.add('flex')    
     document.querySelector('.navbar-container').classList.remove('hide')
-    document.querySelector('.h-menu').classList.remove('hide')
-
 }
 
 function downloadCanvas(elLink) {

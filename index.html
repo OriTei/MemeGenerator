@@ -12,30 +12,33 @@
 </head>
 
 <body onload="onInit()" class="main-layout">
+
+    <div class="main-screen" onclick="toggleMenu()"></div>
     <header>
         <nav class="navbar-container flex">
-            <div class="logo"><img src="img/LOGO.png"></div>
-            <div class="h-menu-container">
-                <div>
-                    <button class="h-menu-icon hide" type="button" onclick="toggleMenu()">☰</button>
-                </div>
-                <div class="h-ul-container">
-                    <ul class="h-ul clean-list">
-                        <li class="h-li hide" onclick="onShowMemes()">Saved Memes</li>
-                        <li class="h-li hide">Gallery</li>
-                        <li class="h-li hide">About</li>
-                    </ul>
-                </div>
-            </div>
+            <div class="logo flex" onclick="displayGallery()"><img src="img/logo.png"></div>
             <ul class="main-menu clean-list">
                 <li class="nav-li" onclick="onShowMemes()">Saved Memes</li>
                 <li class="nav-li">Gallery</li>
                 <li class="nav-li">About</li>
             </ul>
         </nav>
-        </div>
     </header>
+
+    <section class="main-header">
+        <div class="h-menu-container">
+            <button class="h-menu-icon hide" type="button" onclick="toggleMenu()">☰</button>
+            <nav class="main-nav">
+                <ul class="h-menu-ul flex clean-list">
+                    <li onclick="onShowMemes()">Saved Memes</li>
+                    <li>Gallery</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+        </div>
+    </section>
     <main>
+
         <section class="gallery-container"></section>
         <section class="editor-container hide">
             <div class="close-btn-container">
@@ -53,15 +56,15 @@
                     <div class="tools-container flex">
                         <div class="erase-btns flex">
                             <button type="button" class="erase-btns" title="delete previous text"
-                            onclick="onDeleteText()">🗑️</button>
+                                onclick="onDeleteText()">🗑️</button>
                             <button type="button" class="erase-btns" onclick="onSwitchLine()" title="Edit Next Line">
                                 🔁</button>
-                                <select name="font" class="erase-btns" onchange="onFontChange(this.value)"
-                                    id="font-selector">
-                                    <option value="Impact">Impact</option>
-                                    <option value="Lato">Lato</option>
-                                    <option value="Arial">Arial</option>
-                                </select>
+                            <select name="font" class="erase-btns" onchange="onFontChange(this.value)"
+                                id="font-selector">
+                                <option value="Impact">Impact</option>
+                                <option value="Lato">Lato</option>
+                                <option value="Arial">Arial</option>
+                            </select>
                         </div>
                         <div class="font-selector flex">
                             <button type="button" id="add-input-1" onclick="onAddLine()"><i

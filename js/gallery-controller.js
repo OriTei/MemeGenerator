@@ -24,7 +24,6 @@ function onImgSelect(imgIdx) {
     hideGallery()
 }
 
-
 function displayGallery() {
     hideEditor()
     displayElNav()
@@ -50,7 +49,6 @@ function hideSavedMemes() {
     let elModal = document.querySelector('.saved-memes-modal')
     elSavedMemes.classList.add('hide')
     elModal.classList.remove('open')
-
 }
 
 function displayMemesModal() {
@@ -61,6 +59,5 @@ function displayMemesModal() {
 }
 
 function toggleMenu() {
-    debugger
     document.body.classList.toggle('menu-open');
 }
