@@ -3,3 +3,37 @@
     margin-top: 50px;
 }
 
+.gallery-container img {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.gallery-container img:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px rgb(0, 0, 0);
+    animation-duration: 0.5s;
+    animation-name: pulse;
+}
+
+.logo:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.saved-meme-li{
+    margin-right: 10px;
+}
+
+.saved-meme-li img{
+    border-radius: 20px;
+
+}
+
+.saved-meme-li img:hover {
+    cursor: pointer;
+    animation-duration: 0.5s;
+    animation-name: pulse;
+}

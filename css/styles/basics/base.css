@@ -3,24 +3,21 @@
     padding: 0;
 }
 
+body{
+    box-sizing: border-box;
+}
+
 h1 {
     font-size: 3rem;
 }
 
-img {
-    width: 250px;
-    height: 250px;
-    margin: 10px;
-    box-sizing: border-box;
-    border-radius: 20px;
-}
+
 
 button {
     border-radius: 10px;
-    background-color: #71b5bb;
+    background-color: #e3e2e2;
     color: #fff;
     border: none;
-    box-shadow: 2px 2px black;
 
 }
 
@@ -29,13 +26,6 @@ button:hover {
     cursor: pointer;
 }
 
-img:hover {
-    cursor: pointer;
-    box-shadow: 10px 10px black;
-    animation-duration: 0.5s;
-    animation-name: pulse;
-    transition: box-shadow 0.3s;
-}
 
 
 body {
@@ -44,7 +34,18 @@ body {
     font-family: Lato;
     height: 500vh;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    overflow-y: scroll;
+    text-align: center;
+}
 
 canvas {
     margin: auto;
@@ -53,9 +54,16 @@ canvas {
 h1,
 h2,
 h3 {
-    color: white;
+    font-family: cursive;
+    margin-left: 10px;
+    color: rgb(45, 45, 45);
+    text-shadow: 2px 1px rgb(255, 255, 255);
 }
 
 a {
     text-decoration: none;
+}
+
+h4{
+    color: white;
 }

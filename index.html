@@ -14,7 +14,7 @@
 <body onload="onInit()" class="main-layout">
     <header>
         <nav class="navbar-container flex">
-            <div class="logo"><img src="img/logo.png" alt=""></div>
+            <div class="logo"><img src="img/LOGO.png"></div>
             <div class="h-menu-container">
                 <div>
                     <button class="h-menu-icon hide" type="button" onclick="toggleMenu()">☰</button>
@@ -43,68 +43,63 @@
             </div>
             <div class="main-container">
                 <div class="canvas-container">
-                    <div class="share-icons">
-                        <a class="download-link" href="#" onclick="downloadCanvas(this)" download="file-name"
-                            title="download">
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                        <i onclick="onUploadImg()" class="fa-brands fa-facebook" title="Share to facebook"></i>
-                        <i onclick="onSaveMeme()" class="fa-regular fa-floppy-disk" title="Save to your gallery"></i>
-                    </div>
                     <canvas width="550" height="550" id="meme-area"></canvas>
                 </div>
-
                 <form class="editor-tools">
-                    <div class="erase-btns flex">
-                        <button type="button" class="erase-btns" title="clear all text"
-                            onclick="onClearText()">🧹</button>
-                        <button type="button" class="erase-btns" title="delete previous text"
-                            onclick="onDeleteText()">🗑️</button>
-                    </div>
-                    <div>
-                        <input type="range" id="range-input" title="outline width controller"
-                            onchange="onWidthChange(this.value)" min="1" max="10" value="3">
-                    </div>
-                    <div class="upper-btns">
-                        <button type="button" id="add-input-1" onclick="onAddLine()">Add Text</button>
-                        <button type="button" onclick="onSwitchLine()" title="Edit Next Line">⬆️⬇️</button>
-                        <input class="color-btn" type="color" value="#FFFFFF" title="Fill color pick"
-                            oninput="onFillColorChange(this.value)">
-                        <input class="color-btn" type="color" title="Outline color pick"
-                            oninput="onOutColorChange(this.value)">
-                    </div>
-                    <div class="font-align-container">
-                        <button type="button" onclick="onTextAlign('right')"><i
-                                class="fa-solid fa-align-left"></i></button>
-                        <button type="button" onclick="onTextAlign('center')"><i
-                                class="fa-solid fa-align-justify"></i></button>
-                        <button type="button" onclick="onTextAlign('left')"><i
-                                class="fa-solid fa-align-right"></i></i></button>
-                        <button type="button" onclick="onFontSizeChange('Increase')">➕</button>
-                        <button type="button" onclick="onFontSizeChange('Decrease')">➖</button>
-                    </div>
-                    <div class="font-selector">
-                        <select name="font" onchange="onFontChange(this.value)" id="font-selector">
-                            <option value="Impact">Impact</option>
-                            <option value="Lato">Lato</option>
-                            <option value="Arial">Arial</option>
-                        </select>
-                    </div>
-
                     <div class="text-input">
                         <input type="text" placeholder="Your Meme Text Here..." id="text-input-1"
                             oninput="onTextFill(this.value)" />
                     </div>
-                    <div class="nav-btns">
-                        <button onclick="onMoveUp()" type="button">🔼</button>
-                        <div class="left-right-btns flex">
-                            <button onclick="onMoveLeft()" type="button">◀️</button>
-                            <button onclick="onMoveRight()" type="button">▶️</button>
+                    <div class="tools-container flex">
+                        <div class="erase-btns flex">
+                            <button type="button" class="erase-btns" title="delete previous text"
+                            onclick="onDeleteText()">🗑️</button>
+                            <button type="button" class="erase-btns" onclick="onSwitchLine()" title="Edit Next Line">
+                                🔁</button>
+                                <select name="font" class="erase-btns" onchange="onFontChange(this.value)"
+                                    id="font-selector">
+                                    <option value="Impact">Impact</option>
+                                    <option value="Lato">Lato</option>
+                                    <option value="Arial">Arial</option>
+                                </select>
                         </div>
-                        <button onclick="onMoveDown()" type="button">🔽</button>
-                    </div>
+                        <div class="font-selector flex">
+                            <button type="button" id="add-input-1" onclick="onAddLine()"><i
+                                    class="fa-solid fa-plus"></i></button>
+                            <button onclick="onMoveUp()" type="button"><i class="fa-solid fa-arrow-up"></i></button>
+                            <button onclick="onMoveDown()" type="button"><i class="fa-solid fa-arrow-down"></i></button>
+                            <input class="color-btn" type="color" value="#FFFFFF" title="Fill color pick"
+                                oninput="onFillColorChange(this.value)">
+                            <input class="color-btn" type="color" title="Outline color pick"
+                                oninput="onOutColorChange(this.value)">
+                        </div>
+                        <div class="font-align-container">
+                            <button type="button" onclick="onTextAlign('right')"><i
+                                    class="fa-solid fa-align-left"></i></button>
+                            <button type="button" onclick="onTextAlign('center')"><i
+                                    class="fa-solid fa-align-justify"></i></button>
+                            <button type="button" onclick="onTextAlign('left')"><i
+                                    class="fa-solid fa-align-right"></i></button>
+                            <button type="button" onclick="onFontSizeChange('Increase')">
+                                <i class="fa-light fa-a">+</i>
+                            </button>
+                            <button type="button" onclick="onFontSizeChange('Decrease')">
+                                <i class="fa-light fa-a"><span class="icon-minus">-</span></i>
+                            </button>
+                        </div>
 
+                        <div class="share-icons">
+                            <a class="download-link" href="#" onclick="downloadCanvas(this)" download="file-name"
+                                title="download">
+                                <i class="fa-solid fa-download"></i>
+                            </a>
+                            <i onclick="onUploadImg()" class="fa-brands fa-facebook" title="Share to facebook"></i>
+                            <i onclick="onSaveMeme()" class="fa-regular fa-floppy-disk"
+                                title="Save to your gallery"></i>
+                        </div>
+                    </div>
                 </form>
+
             </div>
         </section>
 
@@ -113,7 +108,7 @@
             </ul>
         </div>
         <div class="msg-modal hide">
-            <h2>Meme Saved! Look in Saved Memes</h2>
+            <h4>Meme Saved!</h4>
         </div>
     </main>
 
