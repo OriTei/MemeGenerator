@@ -117,11 +117,14 @@ function onDeleteText() {
 function hideElNav() {
     document.querySelector('.navbar-container').classList.add('hide')    
     document.querySelector('.navbar-container').classList.remove('flex')    
+    document.querySelector('.h-menu').classList.add('hide')
 }
 
 function displayElNav() {
     document.querySelector('.navbar-container').classList.add('flex')    
     document.querySelector('.navbar-container').classList.remove('hide')
+    document.querySelector('.h-menu').classList.remove('hide')
+
 }
 
 function downloadCanvas(elLink) {

@@ -34,7 +34,7 @@ function displayGallery() {
 
 function renderSavedMemes() {
     const memes = loadFromStorage(MEMES_KEY)
-    if(!memes) return
+    if (!memes) return
     let strHTML = '<div class="close-modal-btn"><button type="button" onclick="hideSavedMemes()">❌</button></div>'
     for (let i = 0; i < memes.length; i++) {
         strHTML +=
@@ -50,7 +50,7 @@ function hideSavedMemes() {
     let elModal = document.querySelector('.saved-memes-modal')
     elSavedMemes.classList.add('hide')
     elModal.classList.remove('open')
-    
+
 }
 
 function displayMemesModal() {
@@ -61,8 +61,6 @@ function displayMemesModal() {
 }
 
 function toggleMenu() {
-    let elHamLis = document.querySelectorAll('.h-li')
-    for (let i = 0; i < elHamLis.length; i++){
-        elHamLis[i].classList.toggle('hide')
-    }
+    debugger
+    document.body.classList.toggle('menu-open');
 }

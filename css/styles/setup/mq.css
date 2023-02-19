@@ -1,81 +1,74 @@
-
-
 @media (max-width: 768px) {
 
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
 
-*{
-    padding: 0px;
-    margin: 0px;
-}
     .editor-tools {
         margin: auto;
         padding: 0px 50px;
     }
 
+    header {
+        display: flex;
+    }
+
     .navbar-container {
-        background: linear-gradient(#499e4c, #333);
+        margin: auto;
+        width: 100%;
+        background: linear-gradient(#a4e585, #024218);
         box-sizing: border-box;
         box-shadow: 0px 0px 15px #101010;
-        border-radius: 0px;
-    }
-
-    .share-icons{
-        padding-top: 20px;
-    }
-
-    /* 
-    .editor-tools button {
-        padding: 5px;
-    } */
-    /* 
-    #font-selector {
-        padding: 0px;
-        width: 50%;
-        font-size: 15px;
-    }
-
-    #text-input-1 {
-        padding: 10px 15px;
-        font-size: 15px;
-    } */
-
-
-    /* 
-    .share-icons {
-        font-size: 15px;
-    }
-
-    .saved-memes-modal button {
-        padding: 1px
-    } */
-
-    /* .saved-memes-modal {
-        left: 50%;
-        top: 95%;
-        height: 100px;
-    } */
-
-
-    /* .saved-memes-modal img {
-        width: 50px;
-        height: 50px;
+        gap: 50px;
+        justify-content: center;
+        padding: 20px;
         margin-bottom: 30px;
     }
 
-    .editor-container {
-        margin-top: 20px;
-    } */
+    .navbar-container ul {
+        display: flex;
+        align-self: center;
+        padding-right: 50px;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        gap: 30px;
+    }
+
+    .navbar-container li:hover {
+        color: #333;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+
+    .share-icons {
+        padding-top: 20px;
+    }
+
+
+
+    .logo {
+        margin-left: 100px;
+
+    }
+
+
+
+
     .editor-container {
         background: linear-gradient(var(--editor-background), #a9a6a6);
         width: fit-content;
         height: fit-content;
         padding: 0px;
         margin: auto;
-        box-shadow: 10px 10px rgb(0, 0, 0);
+        box-shadow: 5px 5px rgb(0, 0, 0);
         border-radius: 10px;
-        padding: 20px;
+        padding: 20px 10px;
         margin-top: 10px;
     }
+
     .main-container {
         display: flex;
         flex-direction: column;
@@ -127,7 +120,15 @@
         transition: transform 1s;
     }
 
-    .main-header .main-menu a:hover {
+    .main-nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+
+    .main-header .h-menu a:hover {
         color: #58c93a;
         box-sizing: border-box;
         height: 100%;
@@ -159,8 +160,8 @@
     }
 
     .gallery-container img {
-        width: 170px;
-        height: 170px;
+        width: 200px;
+        height: 200px;
     }
 
     footer {
@@ -168,7 +169,7 @@
     }
 
     canvas {
-        width: 420px;
+        width: 360px;
         height: 350px;
         margin: 0px;
         margin-bottom: 10px;
@@ -211,20 +212,48 @@
         margin: 0px;
     }
 
-
-}
-
-@media (max-width: 500px) {
-    h1 {
-        font-size: 2em;
+    .main-header {
+        display: block;
     }
 
-    img {
-        width: 200px;
-        height: 200px;
+    .main-header .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        font-weight: 700;
+        background: linear-gradient(#5f5f5f, black);
+        box-shadow: -6px 0px 20px 5px rgb(0 0 0 / 22%);
+        min-width: 200px;
+        transform: translateX(100%);
+        transition: transform 0.6s;
+        color: white;
     }
 
+    body.menu-open .main-nav {
+        transform: translateX(0);
+    }
 
+    .main-header .h-menu {
+        flex-direction: column;
+    }
 
+    .h-menu>* {
+        border-bottom: 1px solid #ccc;
+    }
 
+    .main-header .h-menu a {
+        display: flex;
+        padding: 10px 20px;
+        transition: background-color 0.4s;
+    }
+
+    .main-header .h-menu a:hover {
+        background-color: #f2f2f2;
+    }
+
+    .h-menu-ul li:hover{
+        cursor: pointer;
+        color: #58c93a;
+    }
 }
