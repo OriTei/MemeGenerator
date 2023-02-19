@@ -115,11 +115,15 @@
         transition: transform 1s;
     }
 
+    #text-input-1 {
+        margin-bottom: 0px;
+        padding: 10px 15px;
+    }
+
     .main-nav ul {
         display: flex;
         flex-direction: column;
-        gap: 50px;
-        margin-top: 50px;
+        margin-top: 130px;
         font-size: 20px;
     }
 
@@ -218,7 +222,7 @@
         right: 0;
         height: 100vh;
         font-weight: 700;
-        background: linear-gradient(#90c874,#101010);
+        background: linear-gradient(#90c874, #101010);
         box-shadow: -6px 0px 20px 5px rgb(0 0 0 / 22%);
         min-width: 200px;
         transform: translateX(100%);
@@ -248,12 +252,19 @@
         background-color: #f2f2f2;
     }
 
-    .h-menu-ul li:hover{
-        cursor: pointer;
-        color: #292929;
+    .h-menu-ul li {
+        padding: 10px;
+        border-bottom: 2px #101010 solid;
     }
 
-    .saved-meme-li img{
+    .h-menu-ul li:hover {
+        cursor: pointer;
+        color: #ffffff;
+        background-color: #333;
+        transition: 500ms;
+    }
+
+    .saved-meme-li img {
         border-radius: 20px;
         width: 100px;
         height: 100px;
@@ -261,28 +272,31 @@
 }
 
 @media (max-width: 450px) {
+
+
     .gallery-container img {
-        width: 140px;
-        height: 140px;
+        width: 100px;
+        height: 100px;
     }
 
-    .editor-container{
+    .editor-container {
         padding: 30px;
     }
 
-    .erase-btns button{
+    .erase-btns button {
         font-size: 10px
     }
+
     canvas {
         width: 250px;
         height: 250px;
     }
 
-    .editor-tools{
+    .editor-tools {
         padding: 3px;
     }
 
-    .editor-tools > *{
+    .editor-tools>* {
         font-size: 10px;
     }
 }
