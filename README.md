@@ -1,2 +1,2 @@
 # Meme-Generator
-Sprint 2
+Meme generator app using js canvas
